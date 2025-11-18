@@ -1,0 +1,67 @@
+## Inicio de seccion
+
+### Usuraio
+#### administrador 
+
+##### Crear empleado
+###### Nombre
+###### Apellido
+###### Puesto o Cargo
+###### codigo si lo amerita
+##### Reporte y gartantias
+
+#### Empleado
+
+##### Registrar clientes
+###### Nombres
+###### Apellidos
+###### cedula
+###### Numero de celular
+
+
+##### Registro de vehiculos
+###### Dueño
+###### Modelo
+###### Placa
+###### Tipo
+###### Situacion
+###### color 
+###### año
+###### Nivel de gasolina
+###### Kilometraje
+###### Condiciones fisicas del Vehiculo
+- Unidad de luces funciona 
+- Antena
+- Espejo lateral derecho
+- Espejo lateral izquierdo
+- Critales
+- 4 llantas
+- Carro seria sin golpes
+- bocina
+- Gata
+- Material de la gata
+- LLaves de ruedas
+- Triangulo
+- Extintor
+- Cinturon
+
+
+##### Dignostico
+###### Placa
+- Boton Buscar
+###### Mecanico
+###### Tipo
+###### Modelo
+##### Dueño
+##### Situacion
+##### Diagnostico
+
+### visual
+
+#### Usuario 
+#### Contraseña
+#### Informacion breve de la applicacion de escritorio en la parte inferior
+
+### Botones
+#### Iniciar seccion
+#### No tienes cuenta registrate aqui

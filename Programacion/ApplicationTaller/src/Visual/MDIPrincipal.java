@@ -45,10 +45,10 @@ public class MDIPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        fileMenu.setText("Inicio");
 
         openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
+        openMenuItem.setText("Registro de Vehiculo");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openMenuItemActionPerformed(evt);
@@ -57,7 +57,12 @@ public class MDIPrincipal extends javax.swing.JFrame {
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
+        saveMenuItem.setText("Diagnostico");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
@@ -131,11 +136,17 @@ public class MDIPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-JInternalFrameDiagnostico Diagnostico =new JInternalFrameDiagnostico();
-desktopPane.add(Diagnostico);
-Diagnostico.show();
+JInternalFrameRegistrodeVehiculos RegistrodeVehiculo =new JInternalFrameRegistrodeVehiculos();
+desktopPane.add(RegistrodeVehiculo);
+RegistrodeVehiculo.show();
 // Para visualizar la ventana de diagnostico
     }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+      JInternalFrameDiagnostico Diagnostico =new JInternalFrameDiagnostico();
+desktopPane.add(Diagnostico);
+Diagnostico.show();  // TODO add your handling code here:
+    }//GEN-LAST:event_saveMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

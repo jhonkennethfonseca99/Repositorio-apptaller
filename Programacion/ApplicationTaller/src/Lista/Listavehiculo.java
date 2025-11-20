@@ -9,6 +9,8 @@ package Lista;
  * @author Jhon fonseca
  */
 public class Listavehiculo {
+
+    
     String NombreV;
     String PlacaV;
     String Modelov;

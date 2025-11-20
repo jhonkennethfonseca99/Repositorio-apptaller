@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFrame {
 
-    ArrayList<Listavehiculo> ListadeVehiculo = new ArrayList<>();
+    ArrayList<Listavehiculo> DescripcionVehiculo = new ArrayList<>();
 
     /**
      * Creates new form JInternalFrameRegistrodeVehiculos
@@ -29,7 +29,8 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         this.jTextFieldPlaca.setText("");
         this.jTextFieldColor.setText("");
         this.jTextFieldKilometraje.setText("");
-
+        this.jTextFieldModelo.setText("");
+        this.jTextFieldAño.setText("");
     }
 
     /**
@@ -61,7 +62,6 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jComboBoxModelo = new javax.swing.JComboBox<>();
         jComboBoxTipo = new javax.swing.JComboBox<>();
         jLabelDueño = new javax.swing.JLabel();
         jComboBoxSituacion = new javax.swing.JComboBox<>();
@@ -69,7 +69,6 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelSituacion = new javax.swing.JLabel();
         jLabelColor = new javax.swing.JLabel();
         jLabelAño = new javax.swing.JLabel();
-        jComboBoxAñó = new javax.swing.JComboBox<>();
         jTextFieldPlaca = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jComboBoxGasolina = new javax.swing.JComboBox<>();
@@ -77,6 +76,8 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelModelo = new javax.swing.JLabel();
         jTextFieldColor = new javax.swing.JTextField();
         jTextFieldKilometraje = new javax.swing.JTextField();
+        jTextFieldAño = new javax.swing.JTextField();
+        jTextFieldModelo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jCheckBoxTricop = new javax.swing.JCheckBox();
         jCheckBoxEspIz = new javax.swing.JCheckBox();
@@ -224,16 +225,14 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 50));
 
-        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBoxModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
-
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrro ", "Camion", "Camioneta" }));
         jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
         jLabelDueño.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelDueño.setText("Nombre:");
         jPanel1.add(jLabelDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 20));
 
+        jComboBoxSituacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagnostico", "Cambio de aceite", "Cambio de correa" }));
         jPanel1.add(jComboBoxSituacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 100, -1));
 
         jLabelTipo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -251,12 +250,11 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelAño.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelAño.setText("Año:");
         jPanel1.add(jLabelAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 50, 20));
-
-        jComboBoxAñó.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBoxAñó, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 100, -1));
         jPanel1.add(jTextFieldPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jComboBoxGasolina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "20", "40", "50", "70", "80", "90", "100" }));
 
         jLabelKilom.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelKilom.setText("Kilometraje:");
@@ -269,13 +267,14 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldColor, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jTextFieldAño))
                 .addGap(38, 38, 38)
                 .addComponent(jLabelKilom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -288,8 +287,10 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jComboBoxGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,8 +302,10 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
                             .addComponent(jTextFieldKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                        .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 720, 140));
@@ -558,32 +561,38 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+    
         try {
 
             String NombreV = jTextFieldNombre.getText().trim();
             String PlacaV = jTextFieldPlaca.getText().trim();
-            String ModeloV = jComboBoxModelo.getSelectedItem().toString();
+            String ModeloV = jTextFieldModelo.getText().trim();
             String TipoV = jComboBoxTipo.getSelectedItem().toString();
             String SituacionV = jComboBoxSituacion.getSelectedItem().toString();
             String ColorV = jTextFieldColor.getText().trim();
-            String AñoV = jComboBoxAñó.getSelectedItem().toString();
+            String AñoV = jTextFieldAño.getText().trim();
             String GasolinaV = jComboBoxGasolina.getSelectedItem().toString();
             String kilometrajeV = jTextFieldKilometraje.getText().trim();
             if (NombreV.isEmpty() || PlacaV.isEmpty() || ModeloV.isEmpty() || TipoV.isEmpty()
                     || SituacionV.isEmpty() || ColorV.isEmpty() || AñoV.isEmpty() || GasolinaV.isEmpty() || kilometrajeV.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Complete todos los campos");
-            }
+            
             return;
         }
-
-        ListadeVehiculo e = new ListadeVehiculo(NombreV, PlacaV, ModeloV, TipoV, SituacionV, ColorV, AñoV, GasolinaV, kilometrajeV);
-        ListadeVehiculo.add(e);
+        
+        Listavehiculo e = new Listavehiculo(NombreV, PlacaV, ModeloV, TipoV, SituacionV, ColorV, AñoV, GasolinaV, kilometrajeV);
+        DescripcionVehiculo.add(e);
+        
+        JOptionPane.showMessageDialog(null, "Se ha agregado correctamente");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error al guardar");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
-
+    }
     private void jCheckBoxEmicionGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEmicionGActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxEmicionGActionPerformed
@@ -624,9 +633,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
     private javax.swing.JCheckBox jCheckBoxTricop;
     private javax.swing.JCheckBox jCheckBoxUnidadL;
     private javax.swing.JCheckBox jCheckBoxbocina;
-    private javax.swing.JComboBox<String> jComboBoxAñó;
     private javax.swing.JComboBox<String> jComboBoxGasolina;
-    private javax.swing.JComboBox<String> jComboBoxModelo;
     private javax.swing.JComboBox<String> jComboBoxSituacion;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabel1;
@@ -654,8 +661,10 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JTextField jTextFieldAño;
     private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldKilometraje;
+    private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldPlaca;
     // End of variables declaration//GEN-END:variables

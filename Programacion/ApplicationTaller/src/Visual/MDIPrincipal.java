@@ -28,47 +28,79 @@ public class MDIPrincipal extends javax.swing.JFrame {
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
+        fileMenu2 = new javax.swing.JMenu();
+        RegistrarVehiculoMenuItem2 = new javax.swing.JMenuItem();
+        DiagnosticoMenuItem2 = new javax.swing.JMenuItem();
+        AñadirUsuarioMenuItem2 = new javax.swing.JMenuItem();
+        exitMenuItem2 = new javax.swing.JMenuItem();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
+        RegistrarVehiculoMenuItem = new javax.swing.JMenuItem();
+        DiagnosticoMenuItem = new javax.swing.JMenuItem();
+        AñadirUsuarioMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        fileMenu2.setMnemonic('f');
+        fileMenu2.setText("Inicio");
+
+        RegistrarVehiculoMenuItem2.setMnemonic('o');
+        RegistrarVehiculoMenuItem2.setText("Inicion de seccion");
+        RegistrarVehiculoMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarVehiculoMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(RegistrarVehiculoMenuItem2);
+
+        DiagnosticoMenuItem2.setMnemonic('s');
+        DiagnosticoMenuItem2.setText("Crear Cuenta");
+        DiagnosticoMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiagnosticoMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(DiagnosticoMenuItem2);
+
+        AñadirUsuarioMenuItem2.setMnemonic('a');
+        AñadirUsuarioMenuItem2.setText("Reporte y garantia");
+        fileMenu2.add(AñadirUsuarioMenuItem2);
+
+        exitMenuItem2.setMnemonic('x');
+        exitMenuItem2.setText("Exit");
+        exitMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu2.add(exitMenuItem2);
+
+        menuBar.add(fileMenu2);
+
         fileMenu.setMnemonic('f');
-        fileMenu.setText("Inicio");
+        fileMenu.setText("Empleado");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Registro de Vehiculo");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarVehiculoMenuItem.setMnemonic('o');
+        RegistrarVehiculoMenuItem.setText("Registro de Vehiculo");
+        RegistrarVehiculoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
+                RegistrarVehiculoMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        fileMenu.add(RegistrarVehiculoMenuItem);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Diagnostico");
-        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        DiagnosticoMenuItem.setMnemonic('s');
+        DiagnosticoMenuItem.setText("Diagnostico");
+        DiagnosticoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveMenuItemActionPerformed(evt);
+                DiagnosticoMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(saveMenuItem);
+        fileMenu.add(DiagnosticoMenuItem);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
+        AñadirUsuarioMenuItem.setMnemonic('a');
+        AñadirUsuarioMenuItem.setText("Añadir Usuario");
+        fileMenu.add(AñadirUsuarioMenuItem);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Exit");
@@ -81,40 +113,6 @@ public class MDIPrincipal extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
-
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,7 +123,7 @@ public class MDIPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
         );
 
         pack();
@@ -135,18 +133,31 @@ public class MDIPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+    private void RegistrarVehiculoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVehiculoMenuItemActionPerformed
 JInternalFrameRegistrodeVehiculos RegistrodeVehiculo =new JInternalFrameRegistrodeVehiculos();
 desktopPane.add(RegistrodeVehiculo);
 RegistrodeVehiculo.show();
-// Para visualizar la ventana de diagnostico
-    }//GEN-LAST:event_openMenuItemActionPerformed
 
-    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+// Para visualizar la ventana de diagnostico
+    }//GEN-LAST:event_RegistrarVehiculoMenuItemActionPerformed
+
+    private void DiagnosticoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiagnosticoMenuItemActionPerformed
       JInternalFrameDiagnostico Diagnostico =new JInternalFrameDiagnostico();
 desktopPane.add(Diagnostico);
 Diagnostico.show();  // TODO add your handling code here:
-    }//GEN-LAST:event_saveMenuItemActionPerformed
+    }//GEN-LAST:event_DiagnosticoMenuItemActionPerformed
+
+    private void RegistrarVehiculoMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVehiculoMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarVehiculoMenuItem2ActionPerformed
+
+    private void DiagnosticoMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiagnosticoMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiagnosticoMenuItem2ActionPerformed
+
+    private void exitMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,21 +195,18 @@ Diagnostico.show();  // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JMenuItem AñadirUsuarioMenuItem;
+    private javax.swing.JMenuItem AñadirUsuarioMenuItem2;
+    private javax.swing.JMenuItem DiagnosticoMenuItem;
+    private javax.swing.JMenuItem DiagnosticoMenuItem2;
+    private javax.swing.JMenuItem RegistrarVehiculoMenuItem;
+    private javax.swing.JMenuItem RegistrarVehiculoMenuItem2;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenuItem exitMenuItem2;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu fileMenu2;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

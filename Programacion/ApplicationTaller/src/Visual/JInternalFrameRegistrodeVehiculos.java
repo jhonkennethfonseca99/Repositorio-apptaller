@@ -14,13 +14,14 @@ import javax.swing.JOptionPane;
 
 public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFrame {
 
-    ArrayList<Listavehiculo> DescripcionVehiculo = new ArrayList<>();
+    public static ArrayList<Listavehiculo> DescripcionVehiculo = new ArrayList<>();
 
     /**
      * Creates new form JInternalFrameRegistrodeVehiculos
      */
     public JInternalFrameRegistrodeVehiculos() {
         initComponents();
+  
 
     }
 
@@ -56,19 +57,15 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        jButtoncerrar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jComboBoxTipo = new javax.swing.JComboBox<>();
         jLabelDueño = new javax.swing.JLabel();
         jComboBoxSituacion = new javax.swing.JComboBox<>();
-        jLabelTipo = new javax.swing.JLabel();
         jLabelSituacion = new javax.swing.JLabel();
-        jLabelColor = new javax.swing.JLabel();
-        jLabelAño = new javax.swing.JLabel();
         jTextFieldPlaca = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jComboBoxGasolina = new javax.swing.JComboBox<>();
@@ -78,6 +75,10 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jTextFieldKilometraje = new javax.swing.JTextField();
         jTextFieldAño = new javax.swing.JTextField();
         jTextFieldModelo = new javax.swing.JTextField();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        jLabelTipo = new javax.swing.JLabel();
+        jLabelAño = new javax.swing.JLabel();
+        jLabelColor = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jCheckBoxTricop = new javax.swing.JCheckBox();
         jCheckBoxEspIz = new javax.swing.JCheckBox();
@@ -171,17 +172,17 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabel5.setText("Garantia");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
 
-        jButton5.setBackground(new java.awt.Color(51, 51, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cerrar");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButtoncerrar.setBackground(new java.awt.Color(51, 51, 255));
+        jButtoncerrar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtoncerrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtoncerrar.setText("Cerrar");
+        jButtoncerrar.setBorder(null);
+        jButtoncerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButtoncerrarActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 50, 50));
+        jPanel3.add(jButtoncerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 50, 50));
 
         jButton3.setBackground(new java.awt.Color(51, 51, 255));
         jButton3.setText("Reporte y");
@@ -225,9 +226,6 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 50));
 
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrro ", "Camion", "Camioneta" }));
-        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
-
         jLabelDueño.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelDueño.setText("Nombre:");
         jPanel1.add(jLabelDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 80, 20));
@@ -235,21 +233,9 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jComboBoxSituacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diagnostico", "Cambio de aceite", "Cambio de correa" }));
         jPanel1.add(jComboBoxSituacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 100, -1));
 
-        jLabelTipo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabelTipo.setText("Tipo:");
-        jPanel1.add(jLabelTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 50, 20));
-
         jLabelSituacion.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelSituacion.setText("Situación:");
         jPanel1.add(jLabelSituacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 100, 20));
-
-        jLabelColor.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabelColor.setText("Color:");
-        jPanel1.add(jLabelColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 60, 20));
-
-        jLabelAño.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabelAño.setText("Año:");
-        jPanel1.add(jLabelAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 50, 20));
         jPanel1.add(jTextFieldPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -262,53 +248,94 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelModelo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelModelo.setText("Modelo:");
 
+        jTextFieldAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAñoActionPerformed(evt);
+            }
+        });
+
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carrro ", "Camion", "Camioneta" }));
+
+        jLabelTipo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabelTipo.setText("Tipo:");
+
+        jLabelAño.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabelAño.setText("Año:");
+
+        jLabelColor.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabelColor.setText("Color:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldColor, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jTextFieldAño))
-                .addGap(38, 38, 38)
-                .addComponent(jLabelKilom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBoxGasolina, 0, 100, Short.MAX_VALUE)
-                    .addComponent(jTextFieldKilometraje))
-                .addGap(100, 100, 100))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(jLabelColor, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAño, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAño, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabelKilom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxGasolina, 0, 100, Short.MAX_VALUE)
+                            .addComponent(jTextFieldKilometraje))
+                        .addGap(100, 100, 100))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAño, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jComboBoxGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelKilom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelKilom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldKilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelColor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 720, 140));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 720, 160));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -357,7 +384,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
                 .addGap(72, 72, 72))
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 180, 210));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 180, 210));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -418,7 +445,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
                 .addGap(20, 20, 20))
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 190, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 190, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -458,7 +485,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelCodigo6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBoxGata)
@@ -473,7 +500,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
                 .addGap(46, 46, 46))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 170, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 170, 180));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -518,7 +545,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelCodigo7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jCheckBoxCirculacion)
@@ -533,7 +560,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
                 .addGap(46, 46, 46))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 180, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 180, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -552,9 +579,9 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void jButtoncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncerrarActionPerformed
+this.dispose();      // TODO add your handling code here:
+    }//GEN-LAST:event_jButtoncerrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -601,18 +628,22 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         LimpiarCampos();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
+    private void jTextFieldAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAñoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonLimpiar;
+    private javax.swing.JButton jButtoncerrar;
     private javax.swing.JCheckBox jCheckBox29;
     private javax.swing.JCheckBox jCheckBox31;
     private javax.swing.JCheckBox jCheckBoxAlfom;

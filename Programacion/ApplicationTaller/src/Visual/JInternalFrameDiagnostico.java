@@ -26,9 +26,10 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         return -1; // No encontrado
     }
 
-    ArrayList<Listavehiculo> ListadeVehiculo = new ArrayList<>();
+   ArrayList<Listavehiculo> ListadeVehiculo = JInternalFrameRegistrodeVehiculos.DescripcionVehiculo;
+ 
 
-    ArrayList<Listado> ListaDiagnostico = new ArrayList<>();
+   public static ArrayList<Listado> ListaDiagnostico = new ArrayList<>();
 
     public JInternalFrameDiagnostico() {
         initComponents();

@@ -26,10 +26,10 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         return -1; // No encontrado
     }
 
-   ArrayList<Listavehiculo> ListadeVehiculo = JInternalFrameRegistrodeVehiculos.DescripcionVehiculo;
- 
+    ArrayList<Listavehiculo> ListadeVehiculo = JInternalFrameRegistrodeVehiculos.DescripcionVehiculo;
 
-   public static ArrayList<Listado> ListaDiagnostico = new ArrayList<>();
+    public static ArrayList<Listado> ListaDiagnostico = new ArrayList<>();
+    int indice = -1;
 
     public JInternalFrameDiagnostico() {
         initComponents();
@@ -74,7 +74,7 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonActulizar = new javax.swing.JButton();
-        jButtonLimpiar = new javax.swing.JButton();
+        jButtonEditar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,6 +107,7 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         jTextFieldDiagnostico = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButtonGuardar = new javax.swing.JButton();
+        jButtonLimpiar1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,15 +120,15 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
                 jButtonActulizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonActulizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, -1, -1));
+        jPanel1.add(jButtonActulizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, -1, -1));
 
-        jButtonLimpiar.setText("Limpiar");
-        jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimpiarActionPerformed(evt);
+                jButtonEditarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        jPanel1.add(jButtonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -218,6 +219,11 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Placa:");
 
+        jTextTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextTipoActionPerformed(evt);
+            }
+        });
         jTextTipo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextTipoKeyTyped(evt);
@@ -235,6 +241,11 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
             }
         });
 
+        jTextFieldPlaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlacaActionPerformed(evt);
+            }
+        });
         jTextFieldPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldPlacaKeyTyped(evt);
@@ -255,6 +266,12 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         });
 
         jLabel13.setText("Situacion:");
+
+        jTextFieldSituacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSituacionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -371,6 +388,14 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, -1, -1));
 
+        jButtonLimpiar1.setText("Limpiar");
+        jButtonLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpiar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -385,12 +410,39 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
-        LimpiarCampos();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonLimpiarActionPerformed
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+//se verifiaca que este seleccionada una fila de la tabla
+        int fila = this.jTableDiagnostico.getSelectedRow();// se obtine #fila selecionada
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Seleccione un registrode la Tabla");
+        } else { //se toman los campoc de la fila seleccionada de la tabla
+            // y se asigna a variables
+            String Dueño = (String) this.jTableDiagnostico.getValueAt(fila, 0);
+            String Tipo = (String) this.jTableDiagnostico.getValueAt(fila, 1);
+            String Placa = (String) this.jTableDiagnostico.getValueAt(fila, 2);
+            String Modelo = (String) this.jTableDiagnostico.getValueAt(fila, 3);
+            String Mecanico = (String) this.jTableDiagnostico.getValueAt(fila, 4);
+            String Diagnostico = (String) this.jTableDiagnostico.getValueAt(fila, 5);
+            String Situacion = (String) this.jTableDiagnostico.getValueAt(fila, 6);
+
+            //se ubica los dartos enlas textfield
+            jTextFieldDiagnostico.setText(Diagnostico);
+            jTextFieldDueño.setText(Dueño);
+            jTextFieldModelo.setText(Modelo);
+            jTextFieldSituacion.setText(Situacion);
+            jTextTipo.setText(Tipo);
+            jTextFieldPlaca.setText(Placa);
+            jComboBoxMecanico.setSelectedItem(Mecanico);
+            indice = fila;//asigna a variablae indice el nimero de fila
+            //en el que se encuentran los datos a editar
+
+        }
+
+
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -474,7 +526,7 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
                     "Revise tods los campos",
                     JOptionPane.WARNING_MESSAGE);
             // get para octener un valor
-        }else{
+        } else {
 
             String DiagnosticoV = this.jTextFieldDiagnostico.getText();
             String ModeloV = this.jTextFieldModelo.getText();
@@ -539,14 +591,56 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
             jTextFieldDueño.setText(veh.getNombreV());
             jTextTipo.setText(veh.getTipov());
             jTextFieldModelo.setText(veh.getModelov());
-
+              jTextFieldSituacion.setText(veh.getSituacionv());
             JOptionPane.showMessageDialog(this, "Vehículo encontrado");
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonActulizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActulizarActionPerformed
+// validamos si los campos estan vacios
+        if ((jTextFieldDueño.getText().contentEquals(""))
+                || (jTextFieldPlaca.getText().contentEquals(""))
+                || (jTextFieldModelo.getText().contentEquals(""))
+                || (jTextFieldSituacion.getText().contentEquals(""))
+                || (jTextFieldDiagnostico.getText().contentEquals(""))
+                || (jTextTipo.getText().contentEquals(""))
+                || indice == -1) {
+            // Mostramos un mensaje de mampos estan vacios
+            JOptionPane.showMessageDialog(null, "Algunos campos estan vacios", "Actualizar",
+                    JOptionPane.WARNING_MESSAGE);
+            LimpiarCampos();
+        } else {
+            ListaDiagnostico.get(indice).setDueño(jTextFieldDueño.getText());
+            ListaDiagnostico.get(indice).setPlaca(jTextFieldPlaca.getText());
+            ListaDiagnostico.get(indice).setMecanico(jComboBoxMecanico.getSelectedItem().toString());
+            ListaDiagnostico.get(indice).setSituacion(jTextFieldSituacion.getText());
+            ListaDiagnostico.get(indice).setDiagnostico(jTextFieldDiagnostico.getText());
+            ListaDiagnostico.get(indice).setTipo(jTextTipo.getText());
+            // se llama al metodo llenar tabla
+
+            llenarTabla();
+            LimpiarCampos();
+
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonActulizarActionPerformed
+
+    private void jButtonLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLimpiar1ActionPerformed
+
+    private void jTextFieldSituacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSituacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSituacionActionPerformed
+
+    private void jTextFieldPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPlacaActionPerformed
+
+    private void jTextTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTipoActionPerformed
+      // TODO add your handling code here:
+    }//GEN-LAST:event_jTextTipoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -558,8 +652,9 @@ public class JInternalFrameDiagnostico extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonActulizar;
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonGuardar;
-    private javax.swing.JButton jButtonLimpiar;
+    private javax.swing.JButton jButtonLimpiar1;
     private javax.swing.JComboBox<String> jComboBoxMecanico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

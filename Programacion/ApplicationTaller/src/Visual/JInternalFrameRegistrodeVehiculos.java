@@ -10,7 +10,9 @@ package Visual;
  */
 import java.util.ArrayList;
 import Lista.Listavehiculo;
+
 import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
 
 public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFrame {
 
@@ -21,7 +23,6 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
      */
     public JInternalFrameRegistrodeVehiculos() {
         initComponents();
-  
 
     }
 
@@ -32,6 +33,28 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         this.jTextFieldKilometraje.setText("");
         this.jTextFieldModelo.setText("");
         this.jTextFieldAño.setText("");
+        this.jCheckBoxCirculacion.setSelected(false);
+        this.jCheckBox29.setSelected(false);
+        this.jCheckBox31.setSelected(false);
+        this.jCheckBoxAlfom.setSelected(false);
+        this.jCheckBoxCirculacion.setSelected(false);
+        this.jCheckBoxEmicionG.setSelected(false);
+        this.jCheckBoxEncendedor.setSelected(false);
+        this.jCheckBoxEspD.setSelected(false);
+        this.jCheckBoxEspIz.setSelected(false);
+        this.jCheckBoxEspejoR.setSelected(false);
+        this.jCheckBoxExtintor.setSelected(false);
+        this.jCheckBoxForros.setSelected(false);
+        this.jCheckBoxGata.setSelected(false);
+        this.jCheckBoxLlanta.setSelected(false);
+        this.jCheckBoxManeralG.setSelected(false);
+        this.jCheckBoxOtros.setSelected(false);
+        this.jCheckBoxRadio.setSelected(false);
+        this.jCheckBoxSeguro.setSelected(false);
+        this.jCheckBoxTricop.setSelected(false);
+        this.jCheckBoxUnidadL.setSelected(false);
+        this.jCheckBoxbocina.setSelected(false);
+
     }
 
     /**
@@ -118,6 +141,17 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelPlaca.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelPlaca.setText("Placa:");
         jPanel1.add(jLabelPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 50, 20));
+
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
+        jTextFieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNombreKeyTyped(evt);
+            }
+        });
         jPanel1.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, -1));
 
         jButtonActualizar.setBackground(new java.awt.Color(51, 153, 0));
@@ -248,9 +282,26 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
         jLabelModelo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabelModelo.setText("Modelo:");
 
+        jTextFieldColor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldColorKeyTyped(evt);
+            }
+        });
+
         jTextFieldAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldAñoActionPerformed(evt);
+            }
+        });
+
+        jTextFieldModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldModeloActionPerformed(evt);
+            }
+        });
+        jTextFieldModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldModeloKeyTyped(evt);
             }
         });
 
@@ -353,6 +404,11 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
 
         jCheckBoxUnidadL.setText("Unidad de luces");
         jCheckBoxUnidadL.setContentAreaFilled(false);
+        jCheckBoxUnidadL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxUnidadLActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -580,7 +636,7 @@ public class JInternalFrameRegistrodeVehiculos extends javax.swing.JInternalFram
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtoncerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtoncerrarActionPerformed
-this.dispose();      // TODO add your handling code here:
+        this.dispose();      // TODO add your handling code here:
     }//GEN-LAST:event_jButtoncerrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -593,7 +649,7 @@ this.dispose();      // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-    
+
         try {
 
             String NombreV = jTextFieldNombre.getText().trim();
@@ -608,16 +664,16 @@ this.dispose();      // TODO add your handling code here:
             if (NombreV.isEmpty() || PlacaV.isEmpty() || ModeloV.isEmpty() || TipoV.isEmpty()
                     || SituacionV.isEmpty() || ColorV.isEmpty() || AñoV.isEmpty() || GasolinaV.isEmpty() || kilometrajeV.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Complete todos los campos");
-            
-            return;
-        }
-        
-        Listavehiculo e = new Listavehiculo(NombreV, PlacaV, ModeloV, TipoV, SituacionV, ColorV, AñoV, GasolinaV, kilometrajeV);
-        DescripcionVehiculo.add(e);
-        
-        JOptionPane.showMessageDialog(null, "Se ha agregado correctamente");
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error al guardar");
+
+                return;
+            }
+
+            Listavehiculo e = new Listavehiculo(NombreV, PlacaV, ModeloV, TipoV, SituacionV, ColorV, AñoV, GasolinaV, kilometrajeV);
+            DescripcionVehiculo.add(e);
+
+            JOptionPane.showMessageDialog(null, "Se ha agregado correctamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al guardar");
     }//GEN-LAST:event_jButtonGuardarActionPerformed
     }
     private void jCheckBoxEmicionGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxEmicionGActionPerformed
@@ -631,6 +687,86 @@ this.dispose();      // TODO add your handling code here:
     private void jTextFieldAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAñoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAñoActionPerformed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+
+    private void jTextFieldNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNombreKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < 'a' || car > 'z') && (car < 'A' || car > 'Z') // para validar
+                && car != 'á'
+                && car != 'é'
+                && car != 'í'
+                && car != 'ó'
+                && car != 'ú'
+                && car != 'Á'
+                && car != 'É'
+                && car != 'I'
+                && car != 'Ó'
+                && car != 'Ú'
+                && car != 'Ü'
+                && car != 'ü'
+                && car != 'Ñ'
+                && car != 'ñ'
+                && (car != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreKeyTyped
+
+    private void jTextFieldModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldModeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldModeloActionPerformed
+
+    private void jTextFieldModeloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldModeloKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < 'a' || car > 'z') && (car < 'A' || car > 'Z') // para validar
+                && car != 'á'
+                && car != 'é'
+                && car != 'í'
+                && car != 'ó'
+                && car != 'ú'
+                && car != 'Á'
+                && car != 'É'
+                && car != 'I'
+                && car != 'Ó'
+                && car != 'Ú'
+                && car != 'Ü'
+                && car != 'ü'
+                && car != 'Ñ'
+                && car != 'ñ'
+                && (car != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldModeloKeyTyped
+
+    private void jTextFieldColorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldColorKeyTyped
+        char car = evt.getKeyChar();
+        if ((car < 'a' || car > 'z') && (car < 'A' || car > 'Z') // para validar
+                && car != 'á'
+                && car != 'é'
+                && car != 'í'
+                && car != 'ó'
+                && car != 'ú'
+                && car != 'Á'
+                && car != 'É'
+                && car != 'I'
+                && car != 'Ó'
+                && car != 'Ú'
+                && car != 'Ü'
+                && car != 'ü'
+                && car != 'Ñ'
+                && car != 'ñ'
+                && (car != (char) KeyEvent.VK_SPACE)) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldColorKeyTyped
+
+    private void jCheckBoxUnidadLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnidadLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxUnidadLActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

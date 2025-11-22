@@ -71,6 +71,10 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldNombre">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNombreActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNombreKeyTyped"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="100" y="70" width="100" height="-1"/>
@@ -542,6 +546,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldColor">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldColorKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldKilometraje">
             </Component>
@@ -551,6 +558,10 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldModelo">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldModeloActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldModeloKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxTipo">
               <Properties>
@@ -670,6 +681,9 @@
                 <Property name="text" type="java.lang.String" value="Unidad de luces"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxUnidadLActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
